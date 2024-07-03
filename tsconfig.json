@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/components/botao/Index.jsx", "src/pages/components/button/Index.jsx", "src/pages/components/header/Menu.jsx", "src/pages/components/wellcome/Wellcome.jsx", "src/pages/index.jsx"],
   "exclude": ["node_modules"]
 }
