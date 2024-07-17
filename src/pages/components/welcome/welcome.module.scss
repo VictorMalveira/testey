@@ -1,10 +1,100 @@
-.text{ 
-    h1{
-        font-weight: bold;
-        font-size: 71px;
+@import "/src/styles/mixins/fonts.scss";
+@import "/src/styles/mixins/padding.scss";
+@import "/src/styles/mixins/collors.scss";
+@import "/src/styles/mixins/responsive.scss";
+
+.container {
+    padding-top: 75px;
+    background-image: url('../header/images/medidas.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    @include Padding;
+}
+
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.videoContainer {
+    margin: 15px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    video {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
     }
-    p{
-        font-size: 30px;
-        opacity: 0.5;
+
+    @include Responsive {
+        width: 100%;
     }
+}
+
+.videoContainer2 {
+    margin: 15px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    video {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+    }
+
+    @include Responsive {
+        width: 100%;
+    }
+}
+
+
+.text {
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    @include SizeTitle;
+    margin-bottom: 20px;
+}
+
+.text h1 {
+    font-weight: bold;
+    @include SizeTitle;
+    margin-bottom: 20px;
+}
+
+.text p {
+    color: black;
+    @include SubTitle;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+}
+
+.text p:hover {
+    transform: translateY(-5px);
+    transform: translateX(-100px);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }

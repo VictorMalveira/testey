@@ -1,0 +1,37 @@
+.carousel {
+  background-color: aliceblue;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carouselInner {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: calc(50% * 10 / 5); // Adjust width to match the cloned images
+}
+
+.carouselItem {
+  min-width: 30%; 
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  margin: 2px;
+  border-radius: 10%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselItem {
+    height: 200px;
+  }
+}

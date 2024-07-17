@@ -1,16 +1,57 @@
 @import "/src/styles/mixins/collors.scss";
-.button{
+
+.button {
     font-size: 16px;
     font-weight: bold;
     padding: 15px 50px;
-    border-radius: 5px;   
-&.primary{
-    background-color: $gren-color;
-    color: $white-color;
+    border-radius: 5px;
+    border: none; 
+    cursor: pointer; 
+    background-size: 200% 200%; 
+    animation: gradient 5s ease infinite; 
+    transition: transform 0.3s ease, padding 0.3s ease, font-size 0.3s ease;
+
+    &.primary, &.secundary {
+        background: linear-gradient(45deg, #01bd7d, #0d5ba6);
+    }
+
+    &.primary {
+        background: linear-gradient(45deg, #0d5ba6, #01bd7d);
+    }
+
+    &.secundary {
+        background: linear-gradient(45deg, #0d5ba6, #01bd7d);
+    }
+
+    &:hover {
+        transform: scale(1.2); /* Aumenta o tamanho do botão */
+        animation-duration: 1s; /* Acelera a animação do gradiente */
+    }
+
+    @media (max-width: 1024px) {
+        font-size: 14px;
+        padding: 12px 40px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 10px 30px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+        padding: 8px 20px;
+    }
 }
 
-&.secundary{
-    background-color: $gray-color;
-    color: $purple-color;
-}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

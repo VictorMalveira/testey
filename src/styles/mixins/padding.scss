@@ -1,0 +1,7 @@
+@import "./responsive.scss";
+@mixin Padding{
+    padding: 0 11.125rem;
+    @include Responsive {
+        padding: 0 1rem;
+    }
+}

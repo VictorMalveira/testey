@@ -1,25 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./mixins/collors.scss";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html, body {
+  background: linear-gradient(to bottom, $blue-color, $wite-grencolor);
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: $white-color;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+a {
+  color: inherit none;
 }
-
-
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+*{
+  box-sizing: border-box;
 }
