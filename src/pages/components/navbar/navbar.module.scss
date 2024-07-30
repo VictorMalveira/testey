@@ -1,5 +1,215 @@
-.container{
-    height: 200px;
-    background-color: aliceblue;
-    width: 100%;
+// Cores
+$green-bg: #01bd7d;
+$blue-text: #0d5ba6;
+$dark-bg: #000000;
+$white-text: #ffffff;
+
+// Flex Utilities
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexSpaceX2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espaçamento entre os itens */
+}
+
+// Animação de Gradiente
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(45deg, #01bd7d, #0d5ba6);
+  }
+  50% {
+    background: linear-gradient(45deg, #0d5ba6, #01bd7d);
+  }
+  100% {
+    background: linear-gradient(45deg, #01bd7d, #0d5ba6);
+  }
+}
+
+// Hero Section Styles
+.heroContainer {
+  @include flexCenter;
+  background: linear-gradient(45deg, #01bd7d, #0d5ba6);
+  color: $white-text;
+  flex-direction: column;
+  padding: 1.5rem; /* p-6 */
+  animation: gradientAnimation 10s ease infinite; /* Animação contínua do gradiente */
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 3rem; /* p-12 */
+  }
+
+  .heroText {
+    @include flexCenter;
+    flex-direction: column;
+    flex: 1;
+    
+    h1 {
+      font-size: 1.875rem; /* text-3xl */
+      font-weight: bold;
+      margin-bottom: 1rem; /* mb-4 */
+      
+      @media (min-width: 768px) {
+        font-size: 3.125rem; /* text-5xl */
+      }
+    }
+    
+    p {
+      margin-bottom: 1.5rem; /* mb-6 */
+      font-size: 1.125rem; /* text-lg */
+    }
+    
+    button {
+      background-color: rgb(32, 32, 32);
+      color: $white-text;
+      padding: 0.75rem 1.5rem; /* py-3 px-6 */
+      border-radius: 0.5rem; /* rounded-lg */
+      transition: background-color 0.3s ease;
+      
+      &:hover {
+        background-color: rgba(13, 91, 166, 0.8); /* hover:bg-[#0d5ba6]/80 */
+      }
+    }
+  }
+  
+  .heroImage {
+    height: 400px;
+    flex: 1;
+    margin-top: 1.5rem; /* mt-6 */
+    
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
+    
+    img {
+      width: 100%;
+      border-radius: 0.5rem; /* rounded-lg */
+    }
+  }
+}
+
+// Info Section Styles
+.infoSection {
+  @include flexCenter;
+  flex-direction: column;
+  background-color: $dark-bg;
+  color: $white-text;
+  padding: 1rem; /* py-4 */
+  margin-top: 1.5rem; /* mt-6 */
+  justify-content: space-around;
+  
+  .infoItem {
+    @include flexSpaceX2;
+    
+    img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    span {
+      margin-left: 0.5rem; /* Espaçamento entre ícone e texto */
+    }
+  }
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 2rem; /* p-8 */
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: #1f2937; /* dark:bg-zinc-900 */
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold;
+  color: #111827; /* text-zinc-900 */
+  
+  @media (prefers-color-scheme: dark) {
+    color: #f9fafb; /* dark:text-zinc-100 */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+
+  span {
+    color: #10b981; /* text-green-500 */
+  }
+}
+
+.text {
+  text-align: center;
+  color: #374151; /* text-zinc-700 */
+  margin-top: 1rem; /* mt-4 */
+  
+  @media (prefers-color-scheme: dark) {
+    color: #d1d5db; /* dark:text-zinc-300 */
+  }
+}
+
+.imageContainer {
+  display: flex;
+  overflow-x: auto;
+  margin-top: 2rem; /* mt-8 */
+  gap: 1rem; /* space-x-4 */
+  padding: 3px;
+}
+/* Adicionando a animação de deslocamento */
+/* Adicionando a animação de deslocamento contínuo */
+@keyframes slideRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .imageContainer {
+    display: flex;
+    overflow: hidden; /* Esconde as imagens que estão fora da área visível */
+    margin-top: 2rem; /* mt-8 em Tailwind */
+    gap: 1rem; /* space-x-4 em Tailwind */
+    position: relative; /* Necessário para o container com animação */
+  }
+  
+  .imageContainerInner {
+    display: flex;
+    animation: slideRight 20s linear infinite;
+  }
+    .image {
+    margin: 3px;
+    width: 150px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0.5rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    flex-shrink: 0; 
+  }
+    
+
+
+.button {
+  background-color: #10b981; /* bg-green-500 */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem; /* py-2 px-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #059669; /* hover:bg-green-600 */
+  }
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
 }

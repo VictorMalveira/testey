@@ -1,3 +1,4 @@
+// src/components/button/button.module.scss
 @import "/src/styles/mixins/collors.scss";
 
 .button {
@@ -9,38 +10,39 @@
     cursor: pointer; 
     background-size: 200% 200%; 
     animation: gradient 5s ease infinite; 
-    transition: transform 0.3s ease, padding 0.3s ease, font-size 0.3s ease;
-
-    &.primary, &.secundary {
-        background: linear-gradient(45deg, #01bd7d, #0d5ba6);
-    }
-
-    &.primary {
-        background: linear-gradient(45deg, #0d5ba6, #01bd7d);
-    }
-
-    &.secundary {
-        background: linear-gradient(45deg, #0d5ba6, #01bd7d);
-    }
+    transition: transform 0.3s ease, background 0.3s ease; /* Transições suaves para tamanho e gradiente */
+    background: linear-gradient(45deg, #01bd7d, #0d5ba6); /* Gradiente padrão */
 
     &:hover {
-        transform: scale(1.2); /* Aumenta o tamanho do botão */
-        animation-duration: 1s; /* Acelera a animação do gradiente */
+        transform: scale(1.2); /* Aumenta o tamanho do botão ao passar o mouse */
+        background: linear-gradient(45deg, #0d5ba6, #01bd7d); /* Inverte as cores do gradiente ao passar o mouse */
     }
 
     @media (max-width: 1024px) {
-        font-size: 14px;
-        padding: 12px 40px;
+        font-size: 18px; /* Aumenta o tamanho da fonte em telas menores */
+        padding: 18px 60px; /* Aumenta o padding para telas menores */
+        &:hover {
+            transform: scale(1.3); /* Aumenta o tamanho do botão ao passar o mouse em telas menores */
+            background: linear-gradient(45deg, #0d5ba6, #01bd7d); /* Inverte as cores do gradiente ao passar o mouse em telas menores */
+        }
     }
 
     @media (max-width: 768px) {
-        font-size: 14px;
-        padding: 10px 30px;
+        font-size: 16px; /* Ajusta o tamanho da fonte para tablets */
+        padding: 15px 50px; /* Ajusta o padding para tablets */
+        &:hover {
+            transform: scale(1.25); /* Aumenta o tamanho do botão ao passar o mouse em tablets */
+            background: linear-gradient(45deg, #0d5ba6, #01bd7d); /* Inverte as cores do gradiente ao passar o mouse em tablets */
+        }
     }
 
     @media (max-width: 480px) {
-        font-size: 12px;
-        padding: 8px 20px;
+        font-size: 14px; /* Ajusta o tamanho da fonte para dispositivos móveis */
+        padding: 12px 40px; /* Ajusta o padding para dispositivos móveis */
+        &:hover {
+            transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse em dispositivos móveis */
+            background: linear-gradient(45deg, #0d5ba6, #01bd7d); /* Inverte as cores do gradiente ao passar o mouse em dispositivos móveis */
+        }
     }
 }
 

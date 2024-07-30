@@ -2,7 +2,7 @@
 @import "/src/styles/mixins/padding.scss";
 @import "/src/styles/mixins/responsive.scss";
 
-.container{
+.container {
     @include Padding;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -10,35 +10,133 @@
     background-color: $blue-color;
     border-bottom: 0.5px solid $gray-color;
     display: flex;
-    
     align-items: center;
     justify-content: space-between;
     color: $white-color;
-    @include Responsive {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
+    position: relative;
+    z-index: 1000;
 }
-.menu{
-    font-size: 22px;
-    a+a{
-        margin-left: 38.9px;
+
+.logotipo {
+    position: relative;
+
+    .logoImage {
+        transition: transform 2.6s ease;
     }
 
-    @include Responsive{
-        display: none;
+    &:hover .logoImage {
+        animation: rotateAndReturn 2.6s ease forwards;
     }
 }
-.button{
-    font-size: 16px;
-    font-weight: bold;
-    padding: 15px 50px;
-    background-color: $gren-color;
-    border-radius: 5px;
-    
-    @include Responsive{
-        display: none;
+
+@keyframes rotateAndReturn {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(50deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    font-size: 25PX;
+
+    .menuItem {
+        text-decoration: none;
+        color: $white-color;
+        margin-left: 20px;
+        transition: color 0.3s ease, transform 0.5s ease;
+    }
+
+    .menuItem:hover {
+        color: black;
+        transform: scale(1.1);
+    }
+
+    .active {
+        color: black;
+    }
+
+    .sidebarToggle {
+        display: none; /* Esconde o botão no desktop e em telas grandes */
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: $white-color;
+        cursor: pointer;
+
+        @media (max-width: 700px) {
+            display: block; /* Exibe o botão em telas pequenas com largura até 700px */
+        }
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: $blue-color;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    z-index: 999;
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    .closeSidebar {
+        align-self: flex-end;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: $white-color;
+        cursor: pointer;
+    }
+
+    .menuItem {
+        color: $white-color;
+        margin: 15px 0;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+    .sidebarAction {
+        margin-top: auto;
+    }
+}
+
+.button {
+    display: none;
+
+    @media (max-width: 700px) {
+        display: block; /* Exibe o botão na barra lateral em telas pequenas */
+    }
+}
+
+@media (max-width: 700px) {
+    .menu {
+        display: none; /* Esconde o menu horizontal em telas pequenas */
+    }
+
+    .sidebar {
+        display: flex; /* Exibe a sidebar em telas pequenas */
     }
 }

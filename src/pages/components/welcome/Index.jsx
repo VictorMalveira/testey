@@ -1,6 +1,6 @@
 import Button from '../button/Index';
 import Styles from './welcome.module.scss';
-import NavBar from '../navbar/Index';
+import Carrousel from '../carroucel/Index'
 
 
 const Welcome = () => {
@@ -9,36 +9,25 @@ const Welcome = () => {
             <div className={Styles.text}>
                 <h1>O parceiro da sua dieta.</h1> 
                 <p>Calcule dietas de maneira rápida e monte pratos variados para seu objetivo!</p>
-                
-                
             </div>
-            <div>    
             <div className={Styles.videos}>
-            <div className={Styles.videoContainer}>
-                    {''}
+                <div className={Styles.videoContainer}>
                     <video className={Styles.video} autoPlay muted loop>
-                        <source src="/images/videoteste.mp4" type="video/mp4" />
+                        <source src="/images/video2.mp4" type="video/mp4" />
+                    </video>
+                    <p className={Styles.caption}>Defina suas metas.</p>
+                </div>
+                <div className={Styles.videoContainer2}>
+                    <video className={Styles.video} autoPlay muted loop>
+                        <source src="/images/video1.mp4" type="video/mp4" />
                         Seu navegador não suporta o formato de vídeo.
                     </video>
-                    
+                    <h1 className={Styles.caption}>Escolha sua dieta.</h1>
                 </div>
-                 
-            <div className={Styles.videoContainer2}>
-                    {''}
-                    <video className={Styles.video} autoPlay muted loop>
-                        <source src="/images/videoteste.mp4" type="video/mp4" />
-                        Seu navegador não suporta o formato de vídeo.
-                    </video>
-                    
-                </div>
-                </div>
-                <h1 className={Styles.text}>Dietas alimentares de maneira pratica!</h1>
-                
             </div>
             <Button title="Baixar app" kind="secundary" />
-            <NavBar />
+            <Carrousel />
         </div>
-
     );
 }
 

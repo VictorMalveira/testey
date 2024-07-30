@@ -1,59 +1,42 @@
-// components/Carousel.js
-import React, { useEffect, useState, useRef } from 'react';
-import styles from '../carroucel/Carousel.module.scss';
+// src/components/Carousel.js
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import styles from './Carousel.module.scss'; // Caminho para o CSS do carrossel
 
+// Adicione as imagens que você deseja usar
 const images = [
-  '/images/imagem1.jpg',
-  '/images/imagem2.jpg',
-  '/images/imagem3.jpg',
-  '/images/imagem1.jpg',
-  '/images/imagem2.jpg',
+  '/images/1.jpg',
+  '/images/2-copy.jpg',
+  '/images/3.jpg',
+  '/images/4.jpg',
+  '/images/5.jpg',
 ];
 
 const Carousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const intervalRef = useRef(null);
-    const carouselRef = useRef(null);
-  
-    const startAutoSlide = () => {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 3000); 
-    };
-  
-    const stopAutoSlide = () => {
-      clearInterval(intervalRef.current);
-    };
-  
-    useEffect(() => {
-      startAutoSlide();
-      return () => stopAutoSlide();
-    }, []);
-  
-    useEffect(() => {
-      const carouselInner = carouselRef.current;
-      if (currentIndex === images.length) {
-        carouselInner.style.transition = 'none';
-        setCurrentIndex(0);
-        setTimeout(() => {
-          carouselInner.style.transition = 'transform 1s ease-in-out';
-        }, 20);
-      }
-    }, [currentIndex]);
-  
-    return (
-      <div className={styles.carousel}>
-        <div
-          ref={carouselRef}
-          className={styles.carouselInner}
-          style={{ transform: `translateX(-${currentIndex * 20}%)` }}
-        >
-          {images.concat(images).map((image, index) => (
-            <div className={styles.carouselItem} key={index} style={{ backgroundImage: `url(${image})` }}></div>
-          ))}
-        </div>
-      </div>
-    );
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <div className={styles.nextArrow}>›</div>,
+    prevArrow: <div className={styles.prevArrow}>‹</div>,
   };
-  
-  export default Carousel;
+
+  return (
+    <div className={styles.carouselContainer}>
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div className={styles.carouselItem} key={index}>
+            <img src={image} alt={`Slide ${index + 1}`} className={styles.image} />
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
+
+export default Carousel;

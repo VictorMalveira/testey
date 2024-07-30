@@ -1,37 +1,60 @@
-.carousel {
-  background-color: aliceblue;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 10px;
-}
+/* src/components/Carousel.module.scss */
 
-.carouselInner {
-  display: flex;
-  transition: transform 1s ease-in-out;
-  width: calc(50% * 10 / 5); // Adjust width to match the cloned images
+.carouselContainer {
+  width: 100%;
+  height: 300px;
+  max-width: 300px; 
+  margin: 5px auto;
+  position: relative;
+
 }
 
 .carouselItem {
-  min-width: 30%; 
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  margin: 2px;
-  border-radius: 10%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.image {
+  width: 100%;
+  height: 300px; /* Mantém a proporção da imagem */
+  border-radius: 10px; /* Bordas arredondadas */
+ 
+  object-fit: cover;
+}
+
+.nextArrow,
+.prevArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+.nextArrow {
+  right: 10px;
+}
+
+.prevArrow {
+  left: 10px;
 }
 
 @media (max-width: 768px) {
-  .carouselItem {
-    height: 200px;
+  .carouselContainer {
+    width: 90%;
   }
 }
