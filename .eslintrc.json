@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react/no-unescaped-entities": "off", // Desativa a regra sobre entidades não escapadas
+    "@next/next/no-img-element": "off" // Desativa a regra sobre o uso da tag <img>
+}
 }
