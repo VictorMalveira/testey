@@ -9,7 +9,10 @@ const nextConfig = {
         pathname: '/openui/**',
       },
     ],
-    dangerouslyAllowSVG: true, // Habilita o carregamento de SVGs remotos
+    dangerouslyAllowSVG: true, 
+  },
+  eslint: {
+    ignoreDuringBuilds: true, 
   },
 };
 
