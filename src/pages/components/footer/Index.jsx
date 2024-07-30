@@ -14,18 +14,18 @@ const Footer = () => {
                     <Link href="/" className={Styles.link}>Contact Us</Link>
                 </div>
                 <div className={Styles.social}>
-                    <Link href="https://www.facebook.com" className={Styles.socialLink}>
+                    <Link href="https://www.facebook.com" target="_blank" className={Styles.socialLink}>
                         <FontAwesomeIcon icon={faFacebookF} />
                     </Link>
-                    <Link href="https://twitter.com" className={Styles.socialLink}>
+                    <Link href="https://twitter.com" target="_blank" className={Styles.socialLink}>
                         <FontAwesomeIcon icon={faTwitter} />
                     </Link>
-                    <Link href="https://www.instagram.com" className={Styles.socialLink}>
+                    <Link href="https://www.instagram.com" target="_blank" className={Styles.socialLink}>
                         <FontAwesomeIcon icon={faInstagram} />
                     </Link>
                 </div>
                 <div className={Styles.developed}>
-                    <span>&#169; Desenvolvido por <a href="https://instagram.com/victormalveira" className={Styles.developerLink}>Victor Malveira</a></span>
+                    <span>&#169; Desenvolvido por <a href="https://www.instagram.com/victor_malveira.sites" target="_blank" className={Styles.developerLink}>Victor Malveira</a></span>
                 </div>
             </div>
         </footer>

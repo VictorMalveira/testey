@@ -1,63 +1,48 @@
-// src/components/Widget.js
 import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Menu from '../header/Index';
+import Footer from '../footer/Index';
+import Carrousel from '../carroucel/Index';
 import Styles from './pag1.module.scss';
-import Menu from '../header/Index'
-import Footer from '../footer/Index'
 
 const Widget = () => {
-    const [imageVisible, setImageVisible] = useState(false);
+    const [contentVisible, setContentVisible] = useState(false);
 
-    const toggleImage = () => {
-        setImageVisible(!imageVisible);
-        if (!imageVisible) {
-            document.body.classList.add(Styles.darkMode);
-        } else {
-            document.body.classList.remove(Styles.darkMode);
-        }
+    const toggleContent = () => {
+        setContentVisible(!contentVisible);
     };
+
+    // Dados dos slides com descrições
+    const slides = [
+        {
+            src: "/images/imagem1.jpg",
+            alt: "Slide 1",
+            description: "Descrição da Imagem 1"
+        },
+        {
+            src: "/images/imagem2.jpg",
+            alt: "Slide 2",
+            description: "Descrição da Imagem 2"
+        },
+        {
+            src: "/images/imagem3.jpg",
+            alt: "Slide 3",
+            description: "Descrição da Imagem 3"
+        }
+    ];
 
     return (
         <div className={Styles.container}>
             <Menu />
-
             <main className={Styles.main}>
-                <h1 className={Styles.mainTitle}>Seu guia personazado na sua dieta!</h1>
-                <p className={Styles.mainSubtitle}>Para exlicar o que fazemos, você precisa saber o que são os Macronutrientes.</p>
-                <button onClick={toggleImage} className={Styles.secondaryButton}>
+                <h1 className={Styles.mainTitle}>Seu guia personalizado na sua dieta!</h1>
+                <p className={Styles.mainSubtitle}>Para explicar o que fazemos, você precisa saber o que são os Macronutrientes.</p>
+                
+                <div className={`${Styles.expandableContent} ${contentVisible ? Styles.visible : ''}`}>
+                    <Carrousel slides={slides} />
+                </div>
+                <button onClick={toggleContent} className={Styles.secondaryButton}>
                     Clique aqui!
                 </button>
-                <div className={Styles.flex}>
-                    <Link href="#" className={Styles.appButton}>App Store</Link>
-                    <Link href="#" className={Styles.appButton}>Google Play</Link>
-                </div>
-                {imageVisible && (
-                    <div className={Styles.imageContainer}>
-                        <img src="/tudo-sobre-os-macronutrientes.jpg" alt="Smartphone displaying the app" className={Styles.mainImage} />
-                        <div className={Styles.additionalText}>
-                            <h2>O que são Macronutrientes?</h2>
-                            <p>Os macronutrientes são nutrientes que o corpo necessita em grandes quantidades para manter suas funções vitais e fornecer energia. Eles são essenciais para o crescimento, metabolismo e outras funções corporais importantes. Existem três principais tipos de macronutrientes:</p>
-
-                            <h3>Carboidratos</h3>
-                            <p><strong>Função:</strong> Fornecem energia rápida para o corpo.</p>
-                            <p><strong>Fontes:</strong> Pães, massas, frutas, vegetais e grãos.</p>
-                            <p><strong>Importância:</strong> São a principal fonte de energia para o cérebro e músculos durante atividades físicas.</p>
-
-                            <h3>Proteínas</h3>
-                            <p><strong>Função:</strong> Construção e reparação dos tecidos corporais, incluindo músculos e órgãos.</p>
-                            <p><strong>Fontes:</strong> Carnes, peixes, ovos, leguminosas e produtos lácteos.</p>
-                            <p><strong>Importância:</strong> Essenciais para o crescimento e desenvolvimento, além de desempenhar um papel crucial na produção de enzimas e hormônios.</p>
-
-                            <h3>Gorduras</h3>
-                            <p><strong>Função:</strong> Armazenamento de energia, proteção de órgãos vitais e manutenção da temperatura corporal.</p>
-                            <p><strong>Fontes:</strong> Óleos, manteiga, nozes, sementes e peixes gordurosos.</p>
-                            <p><strong>Importância:</strong> Necessárias para a absorção de vitaminas lipossolúveis (A, D, E e K) e para a produção de hormônios.</p>
-
-                            <p>Uma dieta equilibrada deve incluir uma quantidade adequada de cada um desses macronutrientes para garantir a saúde e o bem-estar geral.</p>
-                        </div>
-                    </div>
-                )}
             </main>
             <section className={Styles.section}>
                 <h2 className={Styles.sectionTitle}>Features</h2>

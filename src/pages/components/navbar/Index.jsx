@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './navbar.module.scss';
+import Link from 'next/link';
 
 
 const HeroSection = () => {
@@ -50,9 +51,9 @@ const HeroSection = () => {
           </div>
         </div>
         <div className={styles.flexCenter}>
-          <button className={styles.button}>
+        <Link href="https://4food.bubbleapps.io" target="_blank" className={styles.button}>
             QUERO ESSES RESULTADOS TAMBÉM
-          </button>
+          </Link>
         </div>
       </div>
     </>

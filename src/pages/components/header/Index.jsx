@@ -1,7 +1,7 @@
-import Image from "next/image";
-import React, { useState } from 'react';
-import logo from "./images/logo.png";
-import Link from "next/link";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import logo from './images/logo.png';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Styles from './menu.module.scss';
 import Button from '../button/Index';
@@ -9,10 +9,26 @@ import Button from '../button/Index';
 const Menu = () => {
     const { pathname } = useRouter();
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen);
     };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 700);
+        };
+
+        // Check on mount
+        handleResize();
+
+        // Add event listener
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div className={Styles.container}>
@@ -30,9 +46,11 @@ const Menu = () => {
                 <Button href="https://play.google.com/store/apps/details?id=com.example.app" title="Download" />
             </div>
 
-            <button className={Styles.sidebarToggle} onClick={toggleSidebar}>
-                ☰
-            </button>
+            {isMobile && (
+                <button className={Styles.sidebarToggle} onClick={toggleSidebar}>
+                    ☰
+                </button>
+            )}
 
             <div className={`${Styles.sidebar} ${isSidebarOpen ? Styles.open : ''}`}>
                 <button className={Styles.closeSidebar} onClick={toggleSidebar}>×</button>

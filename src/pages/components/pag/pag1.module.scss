@@ -1,23 +1,18 @@
-/* src/components/Widget.module.scss */
-
 .container {
-    color: #333;
+    color: #ffffff;
     background-image: url('/images/mulheracademia.jpg');
     background-position: center;
-    
 }
 
 .imageContainer {
-    background-color: rgba(255, 255, 255, 0.8); 
-    backdrop-filter: blur(10px); 
-    animation: slideDown 1s ease-out forwards;
+    backdrop-filter: blur(10px);
     text-align: center;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 @keyframes slideDown {
@@ -44,104 +39,14 @@
     }
 }
 
-.mainImage {
-    width: 250px;
-    height: 320px;
+.expandableContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.5s ease-out;
 }
 
-.additionalText {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333;
-    text-align: center;
-}
-
-.darkMode {
-    background-color: #000;
-    color: #fff;
-}
-
-.darkMode .main,
-.darkMode .section {
-    background-color: inherit;
-    color: inherit;
-}
-
-.mainImage {
-    width: 150px;
-    height: 120px;
-}
-
-.additionalText {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333;
-    text-align: center;
-}
-
-.flex {
-    display: flex;
-}
-
-.justify-between {
-    justify-content: space-between;
-}
-
-.items-center {
-    align-items: center;
-}
-
-.h8 {
-    height: 2rem;
-}
-
-.ml4 {
-    margin-left: 1rem;
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.bg-background {
-    background-color: #f9f9f9;
-}
-
-.text-foreground {
-    color: #333;
-}
-
-.navLink {
-    color: #999;
-    margin-right: 0.5rem;
-
-    &:hover {
-        color: #333;
-    }
-}
-
-.primaryButton {
-    background-color: #007bff;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-
-    &:hover {
-        background-color: #0056b3;
-    }
-}
-
-.secondaryButton {
-    background-color: #6c757d;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-
-    &:hover {
-        background-color: #5a6268;
-    }
+.expandableContent.visible {
+    max-height: 1080px; /* Ajuste conforme necessário */
 }
 
 .main {
@@ -160,9 +65,16 @@
     margin-bottom: 1rem;
 }
 
-.mainImage {
-    margin-top: 1rem;
-    max-width: 100%;
+.secondaryButton {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+        background-color: #5a6268;
+    }
 }
 
 .section {
@@ -213,6 +125,17 @@
 
 .testimonialAuthor {
     font-size: 0.875rem;
+}
+
+.primaryButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+        background-color: #0056b3;
+    }
 }
 
 .footer {

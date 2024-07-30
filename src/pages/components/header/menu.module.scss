@@ -2,6 +2,7 @@
 @import "/src/styles/mixins/padding.scss";
 @import "/src/styles/mixins/responsive.scss";
 
+// Estilos Gerais
 .container {
     @include Padding;
     padding-top: 30px;
@@ -46,7 +47,7 @@
     align-items: center;
     flex: 1;
     justify-content: center;
-    font-size: 25PX;
+    font-size: 25px;
 
     .menuItem {
         text-decoration: none;
@@ -127,7 +128,7 @@
     display: none;
 
     @media (max-width: 700px) {
-        display: block; /* Exibe o botão na barra lateral em telas pequenas */
+        display: block;
     }
 }
 
