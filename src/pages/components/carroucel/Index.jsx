@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from "react-slick";
 import Styles from './Carousel.module.scss';
 
-const Carrousel = ({ slides, ...props }) => {
+const Carrousel = ({ slides = [], ...props }) => {
     const settings = {
         dots: true,
         infinite: true,
