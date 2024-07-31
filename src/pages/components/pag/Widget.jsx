@@ -11,7 +11,6 @@ const Widget = () => {
         setContentVisible(!contentVisible);
     };
 
-    // Dados dos slides com descrições
     const slides = [
         {
             src: "/images/imagem1.jpg",
@@ -43,7 +42,8 @@ const Widget = () => {
                 <button onClick={toggleContent} className={Styles.secondaryButton}>
                     Clique aqui!
                 </button>
-            </main>            <section className={Styles.section}>
+            </main>
+            <section className={Styles.section}>
                 <h2 className={Styles.sectionTitle}>Features</h2>
                 <div className={Styles.grid}>
                     <div className={Styles.feature}>
