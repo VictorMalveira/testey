@@ -1,10 +1,9 @@
-// Cores
+
 $green-bg: #01bd7d;
 $blue-text: #0d5ba6;
 $dark-bg: #000000;
 $white-text: #ffffff;
 
-// Flex Utilities
 @mixin flexCenter {
   display: flex;
   align-items: center;
@@ -122,7 +121,7 @@ $white-text: #ffffff;
 
   
 
-// Info Section Styles
+
 .infoSection {
   @include flexCenter;
   flex-direction: column;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Menu from '../header/Index';
 import Footer from '../footer/Index';
-import Carrousel from '../carroucel/Index';
+import Carousel from '../carroucel/Index';
 import Styles from './pag1.module.scss';
 
 const Widget = () => {
@@ -11,24 +11,6 @@ const Widget = () => {
         setContentVisible(!contentVisible);
     };
 
-    const slides = [
-        {
-            src: "/images/imagem1.jpg",
-            alt: "Slide 1",
-            description: "Descrição da Imagem 1"
-        },
-        {
-            src: "/images/imagem2.jpg",
-            alt: "Slide 2",
-            description: "Descrição da Imagem 2"
-        },
-        {
-            src: "/images/imagem3.jpg",
-            alt: "Slide 3",
-            description: "Descrição da Imagem 3"
-        }
-    ];
-
     return (
         <div className={Styles.container}>
             <Menu />
@@ -37,7 +19,8 @@ const Widget = () => {
                 <p className={Styles.mainSubtitle}>Para explicar o que fazemos, você precisa saber o que são os Macronutrientes.</p>
                 
                 <div className={`${Styles.expandableContent} ${contentVisible ? Styles.visible : ''}`}>
-                    <Carrousel slides={slides} />
+                    <h2 className={Styles.movCont}>Os macronutrientes são os nutrientes que nosso corpo necessita em grandes quantidades para obter energia e manter suas funções vitais. Eles são divididos em três categorias principais:</h2>
+                    <Carousel slides={Styles.slides} />
                 </div>
                 <button onClick={toggleContent} className={Styles.secondaryButton}>
                     Clique aqui!
@@ -46,46 +29,53 @@ const Widget = () => {
             <section className={Styles.section}>
                 <h2 className={Styles.sectionTitle}>Features</h2>
                 <div className={Styles.grid}>
-                    <div className={Styles.feature}>
-                        <img src="https://placehold.co/80x80?text=Icon" alt="Meal analysis icon" className={Styles.featureIcon} />
-                        <h3 className={Styles.featureTitle}>Meal Analysis</h3>
-                        <p>Analyze your meals with a photo.</p>
-                    </div>
-                    <div className={Styles.feature}>
-                        <img src="https://placehold.co/80x80?text=Icon" alt="Personalized plans icon" className={Styles.featureIcon} />
-                        <h3 className={Styles.featureTitle}>Personalized Plans</h3>
-                        <p>Get personalized meal plans.</p>
-                    </div>
-                    <div className={Styles.feature}>
-                        <img src="https://placehold.co/80x80?text=Icon" alt="Nutritionist support icon" className={Styles.featureIcon} />
-                        <h3 className={Styles.featureTitle}>Nutritionist Support</h3>
-                        <p>Access support from nutritionists.</p>
-                    </div>
-                    <div className={Styles.feature}>
-                        <img src="https://placehold.co/80x80?text=Icon" alt="Activity tracking icon" className={Styles.featureIcon} />
-                        <h3 className={Styles.featureTitle}>Activity Tracking</h3>
-                        <p>Track your physical activities and calories.</p>
-                    </div>
+                    <Feature
+                        imgSrc="https://placehold.co/80x80?text=Icon"
+                        altText="Meal analysis icon"
+                        title="Meal Analysis"
+                        description="Analyze your meals with a photo."
+                    />
+                    <Feature
+                        imgSrc="https://placehold.co/80x80?text=Icon"
+                        altText="Personalized plans icon"
+                        title="Personalized Plans"
+                        description="Get personalized meal plans."
+                    />
+                    <Feature
+                        imgSrc="https://placehold.co/80x80?text=Icon"
+                        altText="Nutritionist support icon"
+                        title="Nutritionist Support"
+                        description="Access support from nutritionists."
+                    />
+                    <Feature
+                        imgSrc="https://placehold.co/80x80?text=Icon"
+                        altText="Activity tracking icon"
+                        title="Activity Tracking"
+                        description="Track your physical activities and calories."
+                    />
                 </div>
             </section>
             <section className={Styles.section}>
                 <h2 className={Styles.sectionTitle}>Testimonials</h2>
                 <div className={Styles.grid}>
-                    <div className={Styles.testimonial}>
-                        <img src="https://placehold.co/80x80?text=User" alt="User photo" className={Styles.testimonialPhoto} />
-                        <blockquote className={Styles.testimonialQuote}>"This app changed my life!"</blockquote>
-                        <cite className={Styles.testimonialAuthor}>- Satisfied User</cite>
-                    </div>
-                    <div className={Styles.testimonial}>
-                        <img src="https://placehold.co/80x80?text=User" alt="User photo" className={Styles.testimonialPhoto} />
-                        <blockquote className={Styles.testimonialQuote}>"I love the personalized plans."</blockquote>
-                        <cite className={Styles.testimonialAuthor}>- Happy Customer</cite>
-                    </div>
-                    <div className={Styles.testimonial}>
-                        <img src="https://placehold.co/80x80?text=User" alt="User photo" className={Styles.testimonialPhoto} />
-                        <blockquote className={Styles.testimonialQuote}>"Great support from nutritionists."</blockquote>
-                        <cite className={Styles.testimonialAuthor}>- Grateful User</cite>
-                    </div>
+                    <Testimonial
+                        imgSrc="https://placehold.co/80x80?text=User"
+                        altText="User photo"
+                        quote='"This app changed my life!"'
+                        author="- Satisfied User"
+                    />
+                    <Testimonial
+                        imgSrc="https://placehold.co/80x80?text=User"
+                        altText="User photo"
+                        quote='"I love the personalized plans."'
+                        author="- Happy Customer"
+                    />
+                    <Testimonial
+                        imgSrc="https://placehold.co/80x80?text=User"
+                        altText="User photo"
+                        quote='"Great support from nutritionists."'
+                        author="- Grateful User"
+                    />
                 </div>
             </section>
             <section className={Styles.section}>
@@ -96,5 +86,21 @@ const Widget = () => {
         </div>
     );
 };
+
+const Feature = ({ imgSrc, altText, title, description }) => (
+    <div className={Styles.feature}>
+        <img src={imgSrc} alt={altText} className={Styles.featureIcon} />
+        <h3 className={Styles.featureTitle}>{title}</h3>
+        <p>{description}</p>
+    </div>
+);
+
+const Testimonial = ({ imgSrc, altText, quote, author }) => (
+    <div className={Styles.testimonial}>
+        <img src={imgSrc} alt={altText} className={Styles.testimonialPhoto} />
+        <blockquote className={Styles.testimonialQuote}>{quote}</blockquote>
+        <cite className={Styles.testimonialAuthor}>{author}</cite>
+    </div>
+);
 
 export default Widget;

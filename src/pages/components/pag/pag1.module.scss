@@ -4,51 +4,6 @@
     background-position: center;
 }
 
-.imageContainer {
-    backdrop-filter: blur(10px);
-    text-align: center;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-}
-
-.expandableContent {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 1.5s ease-out;
-}
-
-.expandableContent.visible {
-    max-height: 1080px; /* Ajuste conforme necessário */
-}
-
 .main {
     padding: 2rem 1rem;
     text-align: center;
@@ -65,16 +20,58 @@
     margin-bottom: 1rem;
 }
 
+.expandableContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.5s ease-out;
+}
+
+.expandableContent.visible {
+    max-height: none;
+    
+}
+
+.movCont {
+    border-radius: 5%;
+    margin: 0 5%;
+    animation: slideDown 1s ease-in-out;
+    padding: 3%;
+    font-size: 1.25rem; 
+    background-color: #ffffff83;
+    color: black;
+}
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .movCont {
+        font-size: 1rem; 
+        margin: 0 2%;
+        padding: 2%;
+    }
+}
+
 .secondaryButton {
     background-color: #6c757d;
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    cursor: pointer;
+}
 
-    &:hover {
-        background-color: #5a6268;
-    }
+.secondaryButton:hover {
+    background-color: #5a6268;
 }
 
 .section {
@@ -132,9 +129,22 @@
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    cursor: pointer;
+}
 
-    &:hover {
-        background-color: #0056b3;
+.primaryButton:hover {
+    background-color: #0056b3;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
