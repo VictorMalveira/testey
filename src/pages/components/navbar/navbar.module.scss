@@ -13,7 +13,7 @@ $white-text: #ffffff;
 @mixin flexSpaceX2 {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Espaçamento entre os itens */
+  gap: 0.5rem; 
 }
 
 // Animação de Gradiente
@@ -29,60 +29,59 @@ $white-text: #ffffff;
   }
 }
 
-// Hero Section Styles
-// Hero Section Styles
+
+
 .heroContainer {
-  position: relative; /* Necessário para posicionar a imagem de fundo corretamente */
+  position: relative; 
   @include flexCenter;
   background: linear-gradient(45deg, #01bd7d, #0d5ba6);
   color: $white-text;
   flex-direction: column;
-  padding: 1.5rem; /* p-6 */
-  animation: gradientAnimation 10s ease infinite; /* Animação contínua do gradiente */
-  
+  padding: 1.5rem; 
+  animation: gradientAnimation 10s ease infinite; 
+
   @media (min-width: 768px) {
     flex-direction: row;
-    padding: 3rem; /* p-12 */
+    padding: 3rem; 
   }
-  
+}  
   .heroText {
     @include flexCenter;
     flex-direction: column;
     flex: 1;
-    z-index: 1; /* Garante que o texto fique sobre a imagem */
+    z-index: 1; 
     
     h1 {
-      font-size: 1.875rem; /* text-3xl */
+      font-size: 1.875rem; 
       font-weight: bold;
-      margin-bottom: 1rem; /* mb-4 */
+      margin-bottom: 1rem; 
       
       @media (min-width: 768px) {
-        font-size: 3.125rem; /* text-5xl */
+        font-size: 3.125rem;
       }
     }
     
     p {
-      margin-bottom: 1.5rem; /* mb-6 */
-      font-size: 1.125rem; /* text-lg */
-    }
+      margin-bottom: 1.5rem; 
+      font-size: 1.125rem; 
     
     button {
       background-color: rgb(32, 32, 32);
       color: $white-text;
-      padding: 0.75rem 1.5rem; /* py-3 px-6 */
-      border-radius: 0.5rem; /* rounded-lg */
+      padding: 0.75rem 1.5rem; 
+      border-radius: 0.5rem; 
       transition: background-color 0.3s ease;
       
       &:hover {
-        background-color: rgba(13, 91, 166, 0.8); /* hover:bg-[#0d5ba6]/80 */
+        background-color: rgba(13, 91, 166, 0.8); 
       }
     }
   }
   
   .heroImage {
-    height: 400px; /* Define uma altura padrão para telas grandes */
+    height: 400px;
     flex: 1;
-    margin-top: 1.5rem; /* mt-6 */
+    margin-top: 1.5rem; 
     
     @media (min-width: 768px) {
       margin-top: 0;
@@ -91,7 +90,7 @@ $white-text: #ffffff;
     img {
       width: 100%;
       height: auto;
-      border-radius: 0.5rem; /* rounded-lg */
+      border-radius: 0.5rem;
     }
   }
 }
@@ -100,7 +99,7 @@ $white-text: #ffffff;
 @media (max-width: 767px) {
   .heroContainer {
     .heroImage {
-      position: absolute; /* Posiciona a imagem como fundo */
+      position: absolute; 
       top: 0;
       left: 0;
       width: 100%;
@@ -114,7 +113,7 @@ $white-text: #ffffff;
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Faz com que a imagem cubra o contêiner mantendo a proporção */
+        object-fit: cover; 
         z-index: -1; /* Garante que a imagem esteja atrás do texto */
       }
     }
@@ -129,8 +128,8 @@ $white-text: #ffffff;
   flex-direction: column;
   background-color: $dark-bg;
   color: $white-text;
-  padding: 1rem; /* py-4 */
-  margin-top: 1.5rem; /* mt-6 */
+  padding: 1rem; 
+  margin-top: 1.5rem; 
   justify-content: space-around;
   
   .infoItem {
@@ -142,58 +141,56 @@ $white-text: #ffffff;
     }
     
     span {
-      margin-left: 0.5rem; /* Espaçamento entre ícone e texto */
+      margin-left: 0.5rem; 
     }
   }
 }
 
 .container {
   background-color: #ffffff;
-  padding: 2rem; /* p-8 */
+  padding: 2rem; 
   
   @media (prefers-color-scheme: dark) {
-    background-color: #1f2937; /* dark:bg-zinc-900 */
+    background-color: #1f2937; 
   }
 }
 
 .title {
   text-align: center;
-  font-size: 1.5rem; /* text-2xl */
+  font-size: 1.5rem; 
   font-weight: bold;
-  color: #111827; /* text-zinc-900 */
-  
+  color: #111827; 
+
   @media (prefers-color-scheme: dark) {
-    color: #f9fafb; /* dark:text-zinc-100 */
-  }
+    color: #f9fafb; 
 
   @media (min-width: 768px) {
-    font-size: 2.25rem; /* md:text-4xl */
+    font-size: 2.25rem;
   }
-
+  }
   span {
-    color: #10b981; /* text-green-500 */
+    color: #10b981; 
   }
 }
 
 .text {
   text-align: center;
-  color: #374151; /* text-zinc-700 */
-  margin-top: 1rem; /* mt-4 */
+  color: #374151; 
+  margin-top: 1rem; 
   
   @media (prefers-color-scheme: dark) {
-    color: #d1d5db; /* dark:text-zinc-300 */
+    color: #d1d5db; 
   }
 }
 
 .imageContainer {
   display: flex;
   overflow-x: auto;
-  margin-top: 2rem; /* mt-8 */
-  gap: 1rem; /* space-x-4 */
+  margin-top: 2rem; 
+  gap: 1rem; 
   padding: 3px;
 }
-/* Adicionando a animação de deslocamento */
-/* Adicionando a animação de deslocamento contínuo */
+
 @keyframes slideRight {
     0% {
       transform: translateX(0);
@@ -205,10 +202,10 @@ $white-text: #ffffff;
   
   .imageContainer {
     display: flex;
-    overflow: hidden; /* Esconde as imagens que estão fora da área visível */
-    margin-top: 2rem; /* mt-8 em Tailwind */
-    gap: 1rem; /* space-x-4 em Tailwind */
-    position: relative; /* Necessário para o container com animação */
+    overflow: hidden;
+    margin-top: 2rem; 
+    gap: 1rem;
+    position: relative; 
   }
   
   .imageContainerInner {
@@ -228,15 +225,15 @@ $white-text: #ffffff;
 
 
 .button {
-  background-color: #10b981; /* bg-green-500 */
+  background-color: #10b981; 
   color: #ffffff;
   font-weight: bold;
-  padding: 0.5rem 1rem; /* py-2 px-4 */
-  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.5rem 1rem; 
+  border-radius: 0.5rem; 
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #059669; /* hover:bg-green-600 */
+    background-color: #059669; 
   }
 }
 
