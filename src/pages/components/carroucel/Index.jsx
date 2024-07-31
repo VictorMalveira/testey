@@ -2,8 +2,10 @@ import React from 'react';
 import Slider from "react-slick";
 import Styles from './Carousel.module.scss';
 
-const Carrousel = ({ slides, ...props }) => {
-    console.log("Slides:", slides); // Adicione este log para depuração
+const Carrousel = ({ slides = [], ...props }) => {
+    if (!slides.length) {
+        return <div>No slides to display</div>;
+    }
 
     const settings = {
         dots: true,
